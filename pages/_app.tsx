@@ -1,6 +1,7 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import PlayerLayout from "../components/PlayerLayout";
 import "reset-css";
+import PropTypes from "prop-types";
 
 const theme = extendTheme({
 	colors: {
@@ -38,6 +39,11 @@ const MyApp = ({ Component, pageProps }) => {
 			</PlayerLayout>
 		</ChakraProvider>
 	);
+};
+
+MyApp.propTypes = {
+	Component: PropTypes.object,
+	pageProps: PropTypes.object,
 };
 
 export default MyApp;
