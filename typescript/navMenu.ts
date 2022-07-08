@@ -6,7 +6,7 @@ import {
   MdSearch,
 } from "react-icons/md";
 
-const navMenu: Array<any> = [
+const navMenu: Array<Record<string, any>> = [
   {
     name: "Home",
     icon: MdHome,
@@ -24,7 +24,7 @@ const navMenu: Array<any> = [
   },
 ];
 
-const musicMenu: Array<any> = [
+const musicMenu: Array<Record<string, any>> = [
   {
     name: "Create Playlist",
     icon: MdPlaylistAdd,

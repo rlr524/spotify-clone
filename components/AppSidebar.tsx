@@ -1,6 +1,5 @@
 import {
   Box,
-  Center,
   Divider,
   LinkBox,
   LinkOverlay,
@@ -12,6 +11,8 @@ import NextImage from "next/image";
 import NextLink from "next/link";
 import { navMenu, musicMenu } from "../typescript/navMenu";
 
+const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
+
 const AppSidebar = () => {
   return (
     <Box
@@ -21,45 +22,62 @@ const AppSidebar = () => {
       paddingX={"5px"}
       color={"gray"}
     >
-      <Box paddingY={"20px"}>
+      <Box paddingY={"20px"} height={"100%"}>
         <Box width={"120px"} marginBottom={"20px"} paddingX={"20px"}>
           <NextImage src={"/app_logo.svg"} height={60} width={120} />
         </Box>
         <Box marginBottom={"20px"}>
           <List spacing={2}>
-            {navMenu.map((menu) => (
-              <ListItem key={menu.name} paddingX={"20px"} fontSize={"16px"}>
+            <Box>
+              {navMenu.map((menu) => (
+                <ListItem key={menu.name} paddingX={"20px"} fontSize={"16px"}>
+                  <LinkBox>
+                    <NextLink href={menu.route} passHref>
+                      <LinkOverlay>
+                        <ListIcon
+                          as={menu.icon}
+                          color={"white"}
+                          marginRight={"20px"}
+                        />
+                        {menu.name}
+                      </LinkOverlay>
+                    </NextLink>
+                  </LinkBox>
+                </ListItem>
+              ))}
+            </Box>
+            <Box paddingTop={"20px"}>
+              {musicMenu.map((menu) => (
+                <ListItem key={menu.name} paddingX={"20px"} fontSize={"16px"}>
+                  <LinkBox>
+                    <NextLink href={menu.route} passHref>
+                      <LinkOverlay>
+                        <ListIcon
+                          as={menu.icon}
+                          color={"white"}
+                          marginRight={"20px"}
+                        />
+                        {menu.name}
+                      </LinkOverlay>
+                    </NextLink>
+                  </LinkBox>
+                </ListItem>
+              ))}
+            </Box>
+          </List>
+        </Box>
+        <Divider
+          orientation={"horizontal"}
+          marginLeft={"20px"}
+          width={"210px"}
+        />
+        <Box height={"78%"} overflowY={"auto"} paddingY={"20px"}>
+          <List spacing={2}>
+            {playlists.map((list, index) => (
+              <ListItem paddingX={"20px"} key={index} fontSize={"16px"}>
                 <LinkBox>
-                  <NextLink href={menu.route} passHref>
-                    <LinkOverlay>
-                      <ListIcon
-                        as={menu.icon}
-                        color={"white"}
-                        marginRight={"20px"}
-                      />
-                      {menu.name}
-                    </LinkOverlay>
-                  </NextLink>
-                </LinkBox>
-              </ListItem>
-            ))}
-            <Divider
-              orientation={"horizontal"}
-              width={"80px"}
-              alignSelf={"center"}
-            />
-            {musicMenu.map((menu) => (
-              <ListItem key={menu.name} paddingX={"20px"} fontSize={"16px"}>
-                <LinkBox>
-                  <NextLink href={menu.route} passHref>
-                    <LinkOverlay>
-                      <ListIcon
-                        as={menu.icon}
-                        color={"white"}
-                        marginRight={"20px"}
-                      />
-                      {menu.name}
-                    </LinkOverlay>
+                  <NextLink href={"/"} passHref>
+                    <LinkOverlay>{list}</LinkOverlay>
                   </NextLink>
                 </LinkBox>
               </ListItem>
