@@ -5,6 +5,7 @@ import { artistsData } from "./songsData";
 const prisma = new PrismaClient();
 
 const run = async () => {
+  // Cannot use createMany on artist.upsert here because it's a nested create (a create within a create). Solving this by using a Promise.all to do all the creates
   await Promise.all(
     artistsData.map(async (artist) => {
       return prisma.artist.upsert({
@@ -17,6 +18,35 @@ const run = async () => {
               name: song.name,
               duration: song.duration,
               url: song.url,
+            })),
+          },
+        },
+      });
+    })
+  );
+
+  const salt = bcrypt.genSaltSync();
+  const user = await prisma.user.upsert({
+    where: { email: "user@test.com" },
+    update: {},
+    create: {
+      email: "user@test.com",
+      password: bcrypt.hashSync("password", salt),
+    },
+  });
+  const songs = await prisma.song.findMany({});
+  // Using playlist.create here vs upsert as upsert requires something unique to look for, i.e. artist.name above. Here, we're creating the playlists, they don't already exist in a seed data file as artist.name does; the only unique element on playlist is id and we don't have that yet.
+  await Promise.all(
+    new Array(10).fill(1).map(async (_, i) => {
+      return prisma.playlist.create({
+        data: {
+          name: `Playlist # ${i + 1}`,
+          user: {
+            connect: { id: user.id },
+          },
+          songs: {
+            connect: songs.map((song) => ({
+              id: song.id,
             })),
           },
         },

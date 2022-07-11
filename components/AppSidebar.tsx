@@ -17,7 +17,7 @@ const AppSidebar = () => {
   return (
     <Box
       width={"100%"}
-      height={"calc(100vh - 100px)"}
+      height={"calc(100vh - 90px)"}
       background={"black"}
       paddingX={"5px"}
       color={"gray"}
@@ -68,11 +68,17 @@ const AppSidebar = () => {
         </Box>
         <Divider
           orientation={"horizontal"}
+          marginBottom={"20px"}
           marginLeft={"20px"}
           width={"210px"}
           color={"gray.800"}
         />
-        <Box height={"66%"} overflowY={"auto"} paddingY={"20px"}>
+        <Box
+          id={"scroll-area"}
+          height={"66%"}
+          overflowY={"auto"}
+          paddingY={"20px"}
+        >
           <List spacing={2}>
             {playlists.map((list, index) => (
               <ListItem paddingX={"20px"} key={index} fontSize={"16px"}>
