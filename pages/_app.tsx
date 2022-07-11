@@ -4,6 +4,13 @@ import "reset-css";
 import PropTypes from "prop-types";
 
 const theme = extendTheme({
+  styles: {
+    global: {
+      "html, body": {
+        scrollbarColor: "black",
+      },
+    },
+  },
   colors: {
     gray: {
       100: "#F5F5F5",

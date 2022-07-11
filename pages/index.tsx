@@ -1,7 +1,14 @@
-import { Box } from "@chakra-ui/layout";
+import Head from "next/head";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Head>
+        <title>Trax Music</title>
+        <link rel="icon" href="/public/favicon.png" />
+      </Head>
+    </div>
+  );
 };
 
 export default Home;
