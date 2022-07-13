@@ -17,12 +17,12 @@ const AppSidebar = () => {
   return (
     <Box
       width={"100%"}
-      height={"calc(100vh - 90px)"}
+      height={"calc(100vh - 100px)"}
       background={"black"}
       paddingX={"5px"}
       color={"gray"}
     >
-      <Box paddingY={"20px"} height={"100%"}>
+      <Box paddingTop={"20px"} height={"100%"}>
         <Box width={"120px"} marginBottom={"20px"} paddingX={"20px"}>
           <NextImage src={"/app_logo.svg"} height={60} width={120} />
         </Box>
@@ -46,7 +46,7 @@ const AppSidebar = () => {
                 </ListItem>
               ))}
             </Box>
-            <Box paddingTop={"20px"}>
+            <Box marginTop={"20px"}>
               {musicMenu.map((menu) => (
                 <ListItem key={menu.name} paddingX={"20px"} fontSize={"16px"}>
                   <LinkBox>
@@ -81,7 +81,7 @@ const AppSidebar = () => {
         >
           <List spacing={2}>
             {playlists.map((list, index) => (
-              <ListItem paddingX={"20px"} key={index} fontSize={"16px"}>
+              <ListItem paddingX={"20px"} key={index}>
                 <LinkBox>
                   <NextLink href={"/"} passHref>
                     <LinkOverlay>{list}</LinkOverlay>

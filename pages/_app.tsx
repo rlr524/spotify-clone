@@ -2,6 +2,7 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import AppPlayerLayout from "../components/AppPlayerLayout";
 import "reset-css";
 import PropTypes from "prop-types";
+import "../styles/globals.css";
 
 const theme = extendTheme({
   styles: {
