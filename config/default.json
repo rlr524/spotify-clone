@@ -1,0 +1,8 @@
+{
+  "UserConfig": {
+    "cookieMaxAge": 28800
+  },
+  "ApiConfig": {
+    "apiVersion": "v1"
+  }
+}

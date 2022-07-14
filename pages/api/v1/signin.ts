@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../lib/prisma";
+import config from "config";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
@@ -36,7 +37,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       "SET-COOKIE",
       cookie.serialize(process.env.COOKIE_NAME, token, {
         httpOnly: true,
-        maxAge: 28800,
+        maxAge: config.get<number>("UserConfig.cookieMaxAge"),
         path: "/",
         sameSite: "lax",
         secure: process.env.NODE_ENV == "production",
