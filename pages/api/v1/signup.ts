@@ -40,7 +40,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     "SET-COOKIE",
     cookie.serialize(process.env.COOKIE_NAME, token, {
       httpOnly: true,
-      maxAge: process.env.COOKIE_MAX_AGE,
+      maxAge: 28800,
       path: "/",
       sameSite: "lax",
       secure: process.env.NODE_ENV == "production",
