@@ -42,10 +42,14 @@ const theme = extendTheme({
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
-      <AppPlayerLayout>
+      {Component.authPage ? (
         <Component {...pageProps} />
-        <div>Stuff</div>
-      </AppPlayerLayout>
+      ) : (
+        <AppPlayerLayout>
+          <Component {...pageProps} />
+          <div>Placeholder for multiple children in AppPlayerLayout</div>
+        </AppPlayerLayout>
+      )}
     </ChakraProvider>
   );
 };
