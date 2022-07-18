@@ -7,6 +7,7 @@ import {
   ListIcon,
   ListItem,
 } from "@chakra-ui/layout";
+import { background } from "@chakra-ui/react";
 import NextImage from "next/image";
 import NextLink from "next/link";
 import { navMenu, musicMenu } from "../typescript/navMenu";
@@ -78,6 +79,16 @@ const AppSidebar = () => {
           height={"66%"}
           overflowY={"auto"}
           paddingY={"20px"}
+          // sx={{
+          //   "::-webkit-scrollbar-track-piece:start": {
+          //     background:
+          //       "transparent url('/public/background.jpeg') repeat-y !important",
+          //   },
+          //   "::-webkit-scrollbar-track-piece:end": {
+          //     background:
+          //       "transparent url('/public/background.jpeg') repeat-y !important",
+          //   },
+          // }}
         >
           <List spacing={2}>
             {playlists.map((list, index) => (

@@ -1,6 +1,7 @@
 {
   "UserConfig": {
-    "cookieMaxAge": 28800
+    "cookieMaxAge": 28800,
+    "cookieName": "TRAX_ACCESS_TOKEN"
   },
   "ApiConfig": {
     "apiVersion": "v1"

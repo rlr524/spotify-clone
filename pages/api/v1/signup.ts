@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import cookie from "cookie";
 import prisma from "../../../lib/prisma";
 import { NextApiRequest, NextApiResponse } from "next";
-import config from "config";
+import config from "../../../config/default.json";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
@@ -41,7 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     "SET-COOKIE",
     cookie.serialize(process.env.COOKIE_NAME, token, {
       httpOnly: true,
-      maxAge: config.get<number>("UserConfig.cookieMaxAge"),
+      maxAge: config.UserConfig.cookieMaxAge,
       path: "/",
       sameSite: "lax",
       secure: process.env.NODE_ENV == "production",
