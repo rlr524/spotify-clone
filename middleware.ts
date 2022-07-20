@@ -5,12 +5,12 @@ const signedInPages = ["/", "/playlist", "/library"];
 
 /** Edge middleware function see https://nextjs.org/docs/api-reference/edge-runtime */
 export default function middleware(req) {
-  const accesstoken = config.UserConfig.cookieName;
+  let token = config.UserConfig.cookieName;
   const url = req.nextUrl.clone();
   url.pathname = "/signin";
 
   if (signedInPages.find((p) => p === req.nextUrl.pathname)) {
-    const token = req.cookies.accesstoken;
+    ({ token } = req.cookies);
 
     if (!token) {
       return NextResponse.rewrite(url);
