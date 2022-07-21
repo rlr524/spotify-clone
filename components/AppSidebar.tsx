@@ -7,14 +7,15 @@ import {
   ListIcon,
   ListItem,
 } from "@chakra-ui/layout";
-import { background } from "@chakra-ui/react";
 import NextImage from "next/image";
 import NextLink from "next/link";
-import { navMenu, musicMenu } from "../typescript/navMenu";
+import { navMenu, musicMenu } from "../data/navMenu";
+import { usePlaylist } from "../lib/hooks";
 
-const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
+// const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
 
 const AppSidebar = () => {
+  const { playlists } = usePlaylist();
   return (
     <Box
       width={"100%"}
@@ -79,23 +80,13 @@ const AppSidebar = () => {
           height={"66%"}
           overflowY={"auto"}
           paddingY={"20px"}
-          // sx={{
-          //   "::-webkit-scrollbar-track-piece:start": {
-          //     background:
-          //       "transparent url('/public/background.jpeg') repeat-y !important",
-          //   },
-          //   "::-webkit-scrollbar-track-piece:end": {
-          //     background:
-          //       "transparent url('/public/background.jpeg') repeat-y !important",
-          //   },
-          // }}
         >
           <List spacing={2}>
-            {playlists.map((list, index) => (
-              <ListItem paddingX={"20px"} key={index}>
+            {playlists.map((playlist) => (
+              <ListItem paddingX={"20px"} key={playlist.id}>
                 <LinkBox>
                   <NextLink href={"/"} passHref>
-                    <LinkOverlay>{list}</LinkOverlay>
+                    <LinkOverlay>{playlist.name}</LinkOverlay>
                   </NextLink>
                 </LinkBox>
               </ListItem>
