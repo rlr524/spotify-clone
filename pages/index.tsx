@@ -1,4 +1,5 @@
 import Head from "next/head";
+import GradientLayout from "../components/gradientLayout";
 
 const Home = () => {
   return (
@@ -7,6 +8,16 @@ const Home = () => {
         <title>Trax Music</title>
         <link rel="icon" href="/public/favicon.png" />
       </Head>
+      <GradientLayout
+        roundImage
+        color="red"
+        subtitle="profile"
+        title="Madison Ranf"
+        description="15 public playlists"
+        image="/madison_square.jpeg"
+      >
+        <div>home page</div>
+      </GradientLayout>
     </div>
   );
 };

@@ -9,47 +9,8 @@ import {
   LinkBox,
   LinkOverlay,
 } from "@chakra-ui/layout";
-import {
-  MdHome,
-  MdSearch,
-  MdLibraryMusic,
-  MdPlaylistAdd,
-  MdFavorite,
-} from "react-icons/md";
+import { navMenu, musicMenu } from "../data/navMenu";
 import { usePlaylist } from "../lib/hooks";
-
-const navMenu = [
-  {
-    name: "Home",
-    icon: MdHome,
-    route: "/",
-  },
-  {
-    name: "Search",
-    icon: MdSearch,
-    route: "/search",
-  },
-  {
-    name: "Your Library",
-    icon: MdLibraryMusic,
-    route: "/library",
-  },
-];
-
-const musicMenu = [
-  {
-    name: "Create Playlist",
-    icon: MdPlaylistAdd,
-    route: "/",
-  },
-  {
-    name: "Favorites",
-    icon: MdFavorite,
-    route: "/favorites",
-  },
-];
-
-// const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`)
 
 const AppSidebar = () => {
   const { playlists } = usePlaylist();
@@ -105,7 +66,12 @@ const AppSidebar = () => {
             ))}
           </List>
         </Box>
-        <Divider color="gray.800" />
+        <Divider
+          color="gray.800"
+          marginTop={"20px"}
+          width={"200px"}
+          marginLeft={"25px"}
+        />
         <Box height="66%" overflowY="auto" paddingY="20px">
           <List spacing={2}>
             {playlists.map((playlist) => (
