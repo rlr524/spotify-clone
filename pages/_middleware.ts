@@ -1,4 +1,4 @@
-// import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 // import config from "./config/default.json";
 
 const signedInPages = ["/", "/playlist", "/library"];
@@ -10,12 +10,9 @@ export default function middleware(req) {
 
   if (signedInPages.find((p) => p === req.nextUrl.pathname)) {
     const token = req.cookies.TRAX_ACCESS_TOKEN;
-    const url = req.nextUrl.clone();
-    url.pathname = "/signin";
 
     if (!token) {
-      //return NextResponse.redirect(url);
-      console.log("No token");
+      return NextResponse.redirect("/signin");
     }
   }
 }

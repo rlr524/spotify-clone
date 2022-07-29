@@ -47,6 +47,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       userEmail: user.email,
       userId: user.id,
     });
+    console.log(`User id ${user.id} successfully signed in...`);
   } else {
     res.status(401).json({
       error: "Signin unsuccessful, please check your email and password",
