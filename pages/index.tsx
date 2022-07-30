@@ -11,8 +11,8 @@ const Home = () => {
       <GradientLayout
         roundImage
         color="red"
-        subtitle="profile"
-        title="Madison Ranf"
+        profileLable="profile"
+        name="Madison Ranf"
         description="15 public playlists"
         image="/madison_square.jpeg"
       >

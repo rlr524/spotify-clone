@@ -14,7 +14,6 @@ export default function middleware(req: NextRequest) {
     url.pathname = "/signin";
 
     if (!token) {
-      console.log("From middleware.ts: No token");
       return NextResponse.redirect(url);
     }
   }

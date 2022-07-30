@@ -11,7 +11,7 @@ const AppPlayerLayout = ({ children }) => {
       </Box>
       {/*Main Area*/}
       <Box marginLeft={"250px"} marginBottom={"100px"}>
-        <Box height={`calc(100vh - 100px)`}>{children}</Box>
+        <Box height={"calc(100vh - 100px)"}>{children}</Box>
       </Box>
       {/*Player*/}
       <Box position={"absolute"} left={"0"} bottom={"0"}>
@@ -22,7 +22,10 @@ const AppPlayerLayout = ({ children }) => {
 };
 
 AppPlayerLayout.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
 };
 
 export default AppPlayerLayout;

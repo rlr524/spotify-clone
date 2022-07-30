@@ -47,7 +47,6 @@ const MyApp = ({ Component, pageProps }) => {
       ) : (
         <AppPlayerLayout>
           <Component {...pageProps} />
-          <div>Placeholder for multiple children in AppPlayerLayout</div>
         </AppPlayerLayout>
       )}
     </ChakraProvider>

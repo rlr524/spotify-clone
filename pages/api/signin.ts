@@ -39,7 +39,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         maxAge: 28800,
         path: "/",
         sameSite: "lax",
-        secure: process.env.NEXT_PUBLIC_NODE_ENV === "production",
+        secure: process.env.NODE_ENV === "production",
       })
     );
     res.json({

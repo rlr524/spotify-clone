@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import cookie from "cookie";
 import prisma from "../../lib/prisma";
 import { NextApiRequest, NextApiResponse } from "next";
-import { User } from "@prisma/client";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
@@ -15,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const salt = bcrypt.genSaltSync();
   const { email, password } = req.body;
 
-  let user: User;
+  let user;
 
   try {
     user = await prisma.user.create({
@@ -44,7 +43,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       maxAge: 28800,
       path: "/",
       sameSite: "lax",
-      secure: process.env.NEXT_PUBLIC_NODE_ENV === "production",
+      secure: process.env.NODE_ENV === "production",
     })
   );
   res.json({
