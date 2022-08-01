@@ -1,11 +1,10 @@
 import Head from "next/head";
 import GradientLayout from "../components/gradientLayout";
 import { Fragment } from "react";
-import { useArtist } from "../lib/hooks";
 import { Box } from "@chakra-ui/layout";
+import AppArtistsLayout from "../components/AppArtistsLayout";
 
 const Home = () => {
-  const { artists } = useArtist();
   return (
     <Fragment>
       <Head>
@@ -18,13 +17,15 @@ const Home = () => {
       </Head>
       <GradientLayout
         roundImage
-        color="red"
+        color="purple"
         profileLable="profile"
         name="Madison Ranf"
         description="15 public playlists"
         image="/madison_square.jpeg"
       >
-        <Box></Box>
+        <Box>
+          <AppArtistsLayout />
+        </Box>
       </GradientLayout>
     </Fragment>
   );
