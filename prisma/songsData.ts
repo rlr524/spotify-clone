@@ -1,9 +1,12 @@
 export const artistsData: {
   name: string;
   songs: any[];
+  avatar: string;
 }[] = [
   {
     name: "Glitch",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AMLnZu9MW8-n6q6IlL6eOn8vEt3nn9kawNToySMTj3xdUw=s900-c-k-c0x00ffffff-no-rj",
     songs: [
       {
         name: "Fermi Paradox",
@@ -15,6 +18,7 @@ export const artistsData: {
   },
   {
     name: "Purple Cat",
+    avatar: "https://f4.bcbits.com/img/a2892971184_2.jpg",
     songs: [
       {
         name: "Long Day",
@@ -25,6 +29,7 @@ export const artistsData: {
   },
   {
     name: "Ben Sound",
+    avatar: "https://www.evernote.design/assets/images/bensound.jpg",
     songs: [
       {
         name: "The Elevator Bossa Nova",
@@ -35,6 +40,8 @@ export const artistsData: {
   },
   {
     name: "LiQWYD",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AKedOLQYYdHHv7SrPsxWREBpKfb-58n8xbdTIWHXt1Fu=s900-c-k-c0x00ffffff-no-rj",
     songs: [
       {
         name: "Winter",
@@ -45,6 +52,8 @@ export const artistsData: {
   },
   {
     name: "FSM Team",
+    avatar:
+      "https://i1.sndcdn.com/avatars-BevBqiNPy3YnGyx8-oVxlwQ-t240x240.jpg",
     songs: [
       {
         name: "Eternal Springtime",
