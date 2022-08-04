@@ -1,24 +1,28 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, Text } from "@chakra-ui/layout";
 import PropTypes from "prop-types";
 import { Image } from "@chakra-ui/react";
 
-const AppArtistCard = ({ songs, name, avatar }) => {
+const AppArtistCard = ({ name, avatar }) => {
   return (
-    <Box bg={"gray.800"} borderRadius={"4px"} padding={"15px"}>
-      <Image
-        boxSize={"160px"}
-        boxShadow={"2xl"}
-        borderRadius={"100%"}
-        src={avatar}
-      ></Image>
-      {name}
-      {songs}
+    <Box
+      bg={"transparent"}
+      borderRadius={"4px"}
+      padding={"15px"}
+      width={"250px"}
+      height={"300px"}
+    >
+      <Box boxShadow={"2xl"} padding={"20px"}>
+        <Image borderRadius={"100%"} src={avatar} marginBottom={"10px"}></Image>
+        <Text fontSize={"large"}>{name}</Text>
+        <Text fontSize={"sm"} fontWeight={"thin"}>
+          Artist
+        </Text>
+      </Box>
     </Box>
   );
 };
 
 AppArtistCard.propTypes = {
-  songs: PropTypes.arrayOf(PropTypes.string),
   name: PropTypes.string,
   avatar: PropTypes.string,
 };

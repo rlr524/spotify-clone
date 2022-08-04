@@ -18,7 +18,6 @@ const AppArtistsLayout = () => {
             key={index}
             name={artist.name}
             avatar={artist.avatar}
-            songs={artist.songs}
           />
         ))}
       </Flex>
