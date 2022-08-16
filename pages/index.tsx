@@ -3,8 +3,12 @@ import GradientLayout from "../components/gradientLayout";
 import { Fragment } from "react";
 import { Box } from "@chakra-ui/layout";
 import AppArtistsLayout from "../components/AppArtistsLayout";
+import { useCurrentUser } from "../lib/hooks";
 
 const Home = () => {
+  // TODO: Add a loading skeleton for user load
+  const { user } = useCurrentUser();
+
   return (
     <Fragment>
       <Head>
@@ -19,9 +23,9 @@ const Home = () => {
         roundImage
         color="purple"
         profileLable="profile"
-        name="Madison Ranf"
-        description="15 public playlists"
-        image="/madison_square.jpeg"
+        name={`${user?.firstname} ${user?.lastname}`}
+        description={`${user?.playlistCount} public playlists`}
+        image={user?.avatar}
       >
         <Box>
           <AppArtistsLayout />

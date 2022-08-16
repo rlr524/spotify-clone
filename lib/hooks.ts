@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import fetcher from "./fetcher";
 
-export const useMe = () => {
+export const useCurrentUser = () => {
   const { data, error } = useSWR("/me", fetcher);
   return {
     user: data,
