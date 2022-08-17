@@ -22,7 +22,7 @@ const Home = () => {
       <GradientLayout
         roundImage
         color="purple"
-        profileLable="profile"
+        profileLabel="profile"
         name={`${user?.firstname} ${user?.lastname}`}
         description={`${user?.playlistCount} public playlists`}
         image={user?.avatar}

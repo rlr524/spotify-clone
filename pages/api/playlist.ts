@@ -1,5 +1,5 @@
 import prisma from "../../lib/prisma";
-import { validateRoute } from "../../lib/auth";
+import {validateRoute, validateToken} from "../../lib/auth";
 
 export default validateRoute(async (req, res, user) => {
   const playlists = await prisma.playlist.findMany({
@@ -8,7 +8,7 @@ export default validateRoute(async (req, res, user) => {
     },
     orderBy: {
       name: "asc",
-    },
+    }
   });
 
   res.json(playlists);
