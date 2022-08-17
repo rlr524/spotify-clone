@@ -6,7 +6,7 @@ const GradientLayout = ({
   color,
   children,
   image,
-  profileLable,
+  profileLabel,
   name,
   description,
   roundImage,
@@ -36,7 +36,7 @@ const GradientLayout = ({
           color={"white"}
         >
           <Text fontSize={"x-small"} fontWeight={"bold"} casing={"uppercase"}>
-            {profileLable}
+            {profileLabel}
           </Text>
           <Text fontSize={"6xl"}>{name}</Text>
           <Text fontSize={"x-small"}>{description}</Text>
@@ -56,7 +56,7 @@ GradientLayout.propTypes = {
     PropTypes.node,
   ]),
   image: PropTypes.string,
-  profileLable: PropTypes.string,
+  profileLabel: PropTypes.string,
   name: PropTypes.string,
   description: PropTypes.string,
   roundImage: PropTypes.bool,
