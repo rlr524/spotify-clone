@@ -3,6 +3,7 @@ import prisma from "../../lib/prisma";
 import JwtPayload from "../../lib/jwtPayload";
 import PropTypes from "prop-types";
 import GradientLayout from "../../components/gradientLayout";
+import SongTable from "../../components/AppSongTable";
 
 const getBGColor = (id) => {
   const colors = [
@@ -20,7 +21,6 @@ const getBGColor = (id) => {
 
 const Playlist = ({ playlist }) => {
   const color = getBGColor(playlist.id);
-  console.log(playlist);
 
   return (
     <GradientLayout
@@ -31,7 +31,7 @@ const Playlist = ({ playlist }) => {
       description={`${playlist.songs.length} songs`}
       image={`https://picsum.photos/400?random=${playlist.id}`}
     >
-      <div>playlist</div>
+      <SongTable />
     </GradientLayout>
   );
 };

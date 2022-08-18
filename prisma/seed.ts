@@ -35,6 +35,8 @@ const run = async () => {
       password: bcrypt.hashSync("password", salt),
       firstname: "Madison",
       lastname: "Ranf",
+      avatar:
+        "https://res.cloudinary.com/emiya-consulting/image/upload/v1660854274/madi_pfp_wnkvax.jpg",
     },
   });
   const songs = await prisma.song.findMany({});

@@ -3,6 +3,12 @@ import AppPlayerLayout from "../components/AppPlayerLayout";
 import "reset-css";
 import PropTypes from "prop-types";
 import "../styles/globals.css";
+import { StoreProvider } from "easy-peasy";
+import { store } from "../lib/store";
+
+type Props = StoreProvider["props"] & { children: React.ReactNode };
+const StoreProviderCasted =
+  StoreProvider as unknown as React.ComponentType<Props>;
 
 const theme = extendTheme({
   styles: {
@@ -42,13 +48,15 @@ const theme = extendTheme({
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
-      {Component.authPage ? (
-        <Component {...pageProps} />
-      ) : (
-        <AppPlayerLayout>
+      <StoreProviderCasted store={store}>
+        {Component.authPage ? (
           <Component {...pageProps} />
-        </AppPlayerLayout>
-      )}
+        ) : (
+          <AppPlayerLayout>
+            <Component {...pageProps} />
+          </AppPlayerLayout>
+        )}
+      </StoreProviderCasted>
     </ChakraProvider>
   );
 };

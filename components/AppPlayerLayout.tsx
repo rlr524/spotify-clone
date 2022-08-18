@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/layout";
 import PropTypes from "prop-types";
 import AppSidebar from "./AppSidebar";
+import AppPlayerBar from "./AppPlayerBar";
 
 const AppPlayerLayout = ({ children }) => {
   return (
@@ -15,7 +16,7 @@ const AppPlayerLayout = ({ children }) => {
       </Box>
       {/*Player*/}
       <Box position={"absolute"} left={"0"} bottom={"0"}>
-        Player
+        <AppPlayerBar />
       </Box>
     </Box>
   );
