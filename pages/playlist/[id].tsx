@@ -2,9 +2,38 @@ import { validateToken } from "../../lib/auth";
 import prisma from "../../lib/prisma";
 import JwtPayload from "../../lib/jwtPayload";
 import PropTypes from "prop-types";
+import GradientLayout from "../../components/gradientLayout";
+
+const getBGColor = (id) => {
+  const colors = [
+    "red",
+    "green",
+    "blue",
+    "orange",
+    "purple",
+    "gray",
+    "teal",
+    "yellow",
+  ];
+  return colors[id - 1] || colors[Math.floor(Math.random() * colors.length)];
+};
 
 const Playlist = ({ playlist }) => {
-  return <div>{playlist.name}</div>;
+  const color = getBGColor(playlist.id);
+  console.log(playlist);
+
+  return (
+    <GradientLayout
+      color={color}
+      name={playlist.name}
+      roundImage={false}
+      profileLabel={"playlist"}
+      description={`${playlist.songs.length} songs`}
+      image={`https://picsum.photos/400?random=${playlist.id}`}
+    >
+      <div>playlist</div>
+    </GradientLayout>
+  );
 };
 
 // Getting the individual playlist data here server-side and loading it
@@ -38,7 +67,7 @@ export const getServerSideProps = async ({ query, req }) => {
 };
 
 Playlist.propTypes = {
-  playlist: PropTypes.arrayOf(PropTypes.object),
+  playlist: PropTypes.object,
 };
 
 export default Playlist;
