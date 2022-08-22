@@ -1,6 +1,5 @@
 import { validateToken } from "../../lib/auth";
 import prisma from "../../lib/prisma";
-import JwtPayload from "../../lib/jwtPayload";
 import PropTypes from "prop-types";
 import GradientLayout from "../../components/gradientLayout";
 import SongTable from "../../components/AppSongTable";
@@ -42,11 +41,23 @@ const Playlist = ({ playlist }) => {
 // individual playlist with it's songs as long as it's attached to
 // the logged in user.
 export const getServerSideProps = async ({ query, req }) => {
-  const { id } = validateToken(req.cookies.TRAX_ACCESS_TOKEN) as JwtPayload;
+  let user;
+
+  try {
+    user = validateToken(req.cookies.TRAX_ACCESS_TOKEN);
+  } catch (e) {
+    return {
+      redirect: {
+        permanent: false,
+        path: "/signin",
+      },
+    };
+  }
+
   const [playlist] = await prisma.playlist.findMany({
     where: {
       id: +query.id,
-      userId: id,
+      userId: user.id,
     },
     include: {
       songs: {

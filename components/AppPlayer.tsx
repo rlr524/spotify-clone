@@ -24,7 +24,7 @@ import { useStoreActions } from "easy-peasy";
 import { formatTime } from "../lib/formatters";
 import PropTypes from "prop-types";
 
-const Player = ({ songs, activeSong }) => {
+const AppPlayer = ({ songs, activeSong }) => {
   const [playing, setPlaying] = useState(true);
   const [index, setIndex] = useState(
     songs.findIndex((s) => s.id === activeSong.id)
@@ -218,9 +218,9 @@ const Player = ({ songs, activeSong }) => {
   );
 };
 
-Player.propTypes = {
+AppPlayer.propTypes = {
   songs: PropTypes.array,
   activeSong: PropTypes.object,
 };
 
-export default Player;
+export default AppPlayer;
