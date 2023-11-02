@@ -21,7 +21,7 @@
     "format-duration": "^1.4.0",
     "framer-motion": "^4.1.17",
     "jsonwebtoken": "^9.0.0",
-    "next": "13.5.0",
+    "next": "14.0.1",
     "prettier": "^2.7.1",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
